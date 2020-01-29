@@ -6,10 +6,11 @@ import telegram
 
 def send_bot_message(server_response, bot, chat_id):
     host = 'https://dvmn.org'
-    lesson = server_response['new_attempts'][0]['lesson_title']
-    is_negative = server_response['new_attempts'][0]['is_negative']
-    lesson_url = server_response['new_attempts'][0]['lesson_url']
-    lesson_url = host + lesson_url
+    solution_attempt = server_response['new_attempts'][0]
+    lesson = solution_attempt['lesson_title']
+    is_negative = solution_attempt['is_negative']
+    lesson_url = solution_attempt['lesson_url']
+    lesson_url = '{}{}'.format(host, lesson_url)
     if is_negative:
         remarks_message = 'В работе есть некоторые замечания.'
     else:
