@@ -32,9 +32,9 @@ def get_server_response(devman_token, timestamp_param):
 
 
 def main():
-    tg_bot_token = os.getenv('TELEGRAM_BOT_TOKEN')
-    tg_chat_id = os.getenv('TELEGRAM_CHAT_ID')
-    devman_token = os.getenv('DEVMAN_TOKEN')
+    tg_bot_token = os.environ['TELEGRAM_BOT_TOKEN']
+    tg_chat_id = os.environ['TELEGRAM_CHAT_ID']
+    devman_token = os.environ['DEVMAN_TOKEN']
     bot = telegram.Bot(token=tg_bot_token)
     timestamp = time()
     while True:
