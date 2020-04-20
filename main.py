@@ -3,6 +3,9 @@ from time import time
 import requests
 from dotenv import load_dotenv
 import telegram
+import logging
+
+logging.basicConfig(level=logging.INFO)
 
 def send_bot_message(server_response, bot, chat_id):
     host = 'https://dvmn.org'
@@ -37,6 +40,7 @@ def main():
     devman_token = os.environ['DEVMAN_TOKEN']
     bot = telegram.Bot(token=tg_bot_token)
     timestamp = time()
+    logging.info('Бот запущен.')
     while True:
         try:
             response = get_server_response(devman_token, timestamp)
