@@ -30,6 +30,8 @@ Set `LOGGING_BOT_CHAT_ID` equal to the same chat ID as your `TELEGRAM_BOT_CHAT_I
 
 ### Set your Heroku app
 
+These are the instructions for activating your bot via Heroku app. If you want to run the script without creating an app on Heriku, scroll to the [Running the script](#using-this-bot) section.
+
 1. Clone this repository to your [GitHub](https://github.com/) repositories.
 
 2. Sign in or sign up on [Heroku](https://id.heroku.com/login), if you don't have a user account.
@@ -74,6 +76,20 @@ devman_task_check_bot, [01.01.20 15:37]
 https://dvmn.org/modules/python-for-smm/lesson/insta-advertising/
 
 В работе есть некоторые замечания.
+```
+
+#### Running the script
+
+Running `main.py` script:
+```
+$ python3 main.py
+```
+
+Logging info:
+
+```
+2020-01-01 10:10:10,152 - INFO - Бот запущен
+2020-01-01 11:10:27,210 - INFO - Прислано уведомление о проверке работы.
 ```
 
 #### Logging bot
