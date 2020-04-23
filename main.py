@@ -77,9 +77,8 @@ def main():
                         send_bot_message(response, bot, tg_chat_id)
                         logger.info("Прислано уведомление о проверке работы.")
                         continue
-                except requests.exceptions.ReadTimeout as readtimeout_error:
-                    logger.error("Бот упал с ошибкой:")
-                    logger.error(readtimeout_error)
+                except requests.exceptions.ReadTimeout:
+                    continue
                 except requests.exceptions.ConnectionError as connection_error:
                     logger.error("Бот упал с ошибкой:")
                     logger.error(connection_error)
