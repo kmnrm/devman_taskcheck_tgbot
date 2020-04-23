@@ -7,9 +7,9 @@ import telegram
 
 
 class MyLogsHandler(logging.Handler):
-    def __init__(self, logging_bot_token, chat_id):
+    def __init__(self, logging_bot, chat_id):
         super().__init__()
-        self.logging_bot = telegram.Bot(token=logging_bot_token)
+        self.logging_bot = logging_bot
         self.chat_id = chat_id
 
     def emit(self, record):
@@ -44,20 +44,17 @@ def get_server_response(devman_token, timestamp_param):
     return response
 
 
-def create_logger(token, chat_id):
+def create_logger(logging_bot, chat_id):
     logging.basicConfig(
         format='%(asctime)s - %(levelname)s - %(message)s')
     logger = logging.getLogger()
     logger.setLevel(logging.INFO)
-    handler = MyLogsHandler(token, chat_id)
+    handler = MyLogsHandler(logging_bot, chat_id)
     logger.addHandler(handler)
     return logger
 
 
 def main():
-    logging_bot_token = os.environ['LOGGING_BOT_TOKEN']
-    logging_chat_id = os.environ['LOGGING_BOT_CHAT_ID']
-    logger = create_logger(logging_bot_token, logging_chat_id)
     logger.info("Бот запущен")
     timestamp = time()
     while True:
@@ -90,4 +87,8 @@ def main():
 
 if __name__ == "__main__":
     load_dotenv()
+    logging_bot_token = os.environ['LOGGING_BOT_TOKEN']
+    logging_chat_id = os.environ['LOGGING_BOT_CHAT_ID']
+    logging_bot = telegram.Bot(token=logging_bot_token)
+    logger = create_logger(logging_bot, logging_chat_id)
     main()
