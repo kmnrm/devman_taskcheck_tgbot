@@ -59,13 +59,13 @@ def main():
     logging_chat_id = os.environ['LOGGING_BOT_CHAT_ID']
     logger = create_logger(logging_bot_token, logging_chat_id)
     logger.info("Бот запущен")
+    timestamp = time()
     while True:
         try:
             tg_bot_token = os.environ['TELEGRAM_BOT_TOKEN']
             tg_chat_id = os.environ['TELEGRAM_BOT_CHAT_ID']
             devman_token = os.environ['DEVMAN_TOKEN']
             bot = telegram.Bot(token=tg_bot_token)
-            timestamp = time()
             while True:
                 try:
                     response = get_server_response(devman_token, timestamp)
