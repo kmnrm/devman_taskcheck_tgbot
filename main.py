@@ -85,8 +85,7 @@ def main():
                     logger.error(connection_error)
                     sleep(10)
         except Exception as err:
-            logger.error("Бот упал с ошибкой:")
-            logger.error(err, exc_info=True)
+            logger.exception("Бот упал с ошибкой:")
             sleep(20)
 
 
