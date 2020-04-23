@@ -30,7 +30,7 @@ Set `LOGGING_BOT_CHAT_ID` equal to the same chat ID as your `TELEGRAM_BOT_CHAT_I
 
 ### Set your Heroku app
 
-These are the instructions for activating your bot via Heroku app. If you want to run the script without creating an app on Heriku, scroll to the [Running the script](#using-this-bot) section.
+These are the instructions for activating your bot via Heroku app. If you want to run the script without creating an app on Heriku, go to [Running the script](#running-the-script) section.
 
 1. Clone this repository to your [GitHub](https://github.com/) repositories.
 
